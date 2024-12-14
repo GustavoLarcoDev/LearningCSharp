@@ -1,0 +1,57 @@
+﻿@model List<Game>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Information</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Game Information</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Release Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach(Game g in Model){
+                <tr>
+                    <td>@g.Id</td>
+                    <td>@g.Name</td>
+                    <td>@g.Genre.Name</td>
+                    <td>@g.Price</td>
+                    <td>@g.ReleaseDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

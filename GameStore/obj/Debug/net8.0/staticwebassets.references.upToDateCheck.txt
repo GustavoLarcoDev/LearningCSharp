@@ -1,0 +1,4 @@
+C:\Users\nadim\source\repos\LearningCSharp\GameStore.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\nadim\source\repos\LearningCSharp\GameStore.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\nadim\source\repos\LearningCSharp\GameStore.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\nadim\source\repos\LearningCSharp\GameStore.Api\obj\Debug\net8.0\staticwebassets.build.json

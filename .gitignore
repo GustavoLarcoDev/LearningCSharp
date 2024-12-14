@@ -1,0 +1,69 @@
+## ASP.NET Core ##
+
+# Ignore build results
+/bin/
+/obj/
+
+# Ignore ASP.NET Core specific files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore user-specific files
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+# Windows Installer files
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer Directory
+.installer/
+
+# NPM/Yarn dependencies
+node_modules/
+
+# Ignore .NET Core runtime-specific files
+*.dotCover
+*.userosscache
+*.suo
+*.user
+*.userprefs
+
+# Ignore local test results
+/TestResults/
+
+# User-specific settings for JetBrains Rider
+.idea/
+
+# Ignore logs
+logs/
+
+# Ignore other system files
+*.log
+*.swp
+*.swo
+
+# DotNet CLI local tool configuration files
+.dotnet/tools/
+
+# JetBrains Rider project files
+.idea/
+
+# VS Code workspace settings
+.vscode/
+
+# Ignore coverage output
+coverage/
+
+# Ignore backups
+*.bak
+*.swp
