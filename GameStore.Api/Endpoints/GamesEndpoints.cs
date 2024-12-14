@@ -30,7 +30,7 @@ const string GetGameEndpointName = "GetGame";
     public static RouteGroupBuilder MapGamesEndpoints( this WebApplication app)
     {
         var group = app.MapGroup("games")
-        .WithParameterValidation();;
+        .WithParameterValidation();
     // GET /games
     group.MapGet("/", () => games);
 
@@ -46,10 +46,10 @@ const string GetGameEndpointName = "GetGame";
     //POST / games
     group.MapPost("/", (CreateGameDto newGame) =>
     {
-        if (string.IsNullOrEmpty(newGame.Name))
-        {
-            return Results.BadRequest("Name is required");
-        }
+        // if (string.IsNullOrEmpty(newGame.Name))
+        // {
+        //     return Results.BadRequest("Name is required");
+        // }
         GameDto game = new(
             games.Count + 1,
             newGame.Name,
