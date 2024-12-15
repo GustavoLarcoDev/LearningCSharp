@@ -1,8 +1,8 @@
 ## ASP.NET Core ##
 
 # Ignore build results
-/bin/
-/obj/
+bin/
+obj/
 
 # Ignore ASP.NET Core specific files
 project.lock.json
