@@ -23,5 +23,16 @@ namespace GameStore.Controllers
 
             //return View();
         }
+        [HttpPost("/Create")]
+        public IActionResult Create_Game(Game model)
+        {
+            _context.Games.Add(model);
+            _context.SaveChanges();
+            var games = from game in _context.Games
+                        select game;
+
+
+            return View("Index", games);
+        }
     }
 }
