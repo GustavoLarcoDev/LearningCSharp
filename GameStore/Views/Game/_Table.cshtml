@@ -1,0 +1,35 @@
+﻿@model List<Game>
+@{
+    Game new_game = new Game
+            {
+                Name = string.Empty
+            };
+}
+<table id="table_games">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Release Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        @foreach (Game g in Model)
+        {
+                    <tr>
+                        <td>@g.Id</td>
+                        <td>@g.Name</td>
+                        <td>@(g.Genre?.Name ?? string.Empty)</td>
+                        <td>@g.Price</td>
+                        <td>@g.ReleaseDate.ToShortDateString()</td>
+                        <td>
+                    <button type="submit" class="btn-sm" onclick="deleteGame('@g.Id')">Delete</button>
+                        </td>
+                    </tr>
+        }
+        </tbody>
+    </table>

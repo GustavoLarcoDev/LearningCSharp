@@ -34,16 +34,18 @@ namespace GameStore.Controllers
 
             return View("Index", games.ToList());
         }
-        [HttpDelete("/{id}/Delete")]
+
+
+        [HttpDelete("{id}/Delete")]
         public IActionResult Delete_Game(int id)
         {
             Game game = _context.Games.Find(id);
             _context.Games.Remove(game);
+            _context.SaveChanges();
             var games = from g in _context.Games
                         select g;
-            return View("Index", games.ToList());
+            return View("_Table", games.ToList());
             
         }
-
     }
 }

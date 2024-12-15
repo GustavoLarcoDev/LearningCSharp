@@ -42,36 +42,21 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Genre</th>
-                <th>Price</th>
-                <th>Release Date</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach(Game g in Model){
-                <tr>
-                    <td>@g.Id</td>
-                    <td>@g.Name</td>
-                    <td>@(g.Genre?.Name ?? string.Empty)</td>
-                    <td>@g.Price</td>
-                    <td>@g.ReleaseDate.ToShortDateString()</td>
-                    <td>
-                        <form asp-action="Delete_Game" method="" asp-route-id="@g.Id" >
-                            <button type="submit" class="btn-sm">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
+    <partial name="_Table" model="Model"/>
 </body>
+@section Scripts{
+    <script>
+        function deleteGame(id){
+            $.ajax({
+                url: `/game/${id}/delete`,
+                type: 'DELETE',
+                success: function(result) {
+                // Do something with the result
+                    alert("Game was deleted");
+                    $("#table_games").replaceWith(result);
+                }
+            });
+        }
+    </script>
+}
 </html>
