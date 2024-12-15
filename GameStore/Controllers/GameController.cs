@@ -24,15 +24,26 @@ namespace GameStore.Controllers
             //return View();
         }
         [HttpPost("/Create")]
-        public IActionResult Create_Game(Game model)
+        public IActionResult Create_Game(Game new_game)
         {
-            _context.Games.Add(model);
+            _context.Games.Add(new_game);
             _context.SaveChanges();
             var games = from game in _context.Games
                         select game;
 
 
-            return View("Index", games);
+            return View("Index", games.ToList());
         }
+        [HttpDelete("/{id}/Delete")]
+        public IActionResult Delete_Game(int id)
+        {
+            Game game = _context.Games.Find(id);
+            _context.Games.Remove(game);
+            var games = from g in _context.Games
+                        select g;
+            return View("Index", games.ToList());
+            
+        }
+
     }
 }

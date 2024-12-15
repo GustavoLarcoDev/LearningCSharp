@@ -1,5 +1,10 @@
 ﻿@model List<Game>
+@{
+    Game new_game = new Game { 
+        Name = string.Empty
+    };
 
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +33,15 @@
 <body>
 
     <h1>Game Information</h1>
+    <div>
+        <form asp-action="Create_Game" asp-route-model ="@new_game" method="post">
+            <input type="text" asp-for ="@new_game.Name" />
+            <input type="text" asp-for="@new_game.GenreId" />
+            <input type="text" asp-for="@new_game.Price" />
+            <input type="text" asp-for="@new_game.ReleaseDate" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <table>
         <thead>
@@ -37,6 +51,7 @@
                 <th>Genre</th>
                 <th>Price</th>
                 <th>Release Date</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -45,9 +60,14 @@
                 <tr>
                     <td>@g.Id</td>
                     <td>@g.Name</td>
-                    <td>@g.Genre.Name</td>
+                    <td>@(g.Genre?.Name ?? string.Empty)</td>
                     <td>@g.Price</td>
                     <td>@g.ReleaseDate.ToShortDateString()</td>
+                    <td>
+                        <form asp-action="Delete_Game" method="" asp-route-id="@g.Id" >
+                            <button type="submit" class="btn-sm">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
